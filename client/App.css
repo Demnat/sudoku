@@ -1,0 +1,43 @@
+@import url('https://db.onlinewebfonts.com/c/1b4cd06b44538d529084b3599f708643?family=MuseoSansW01-Rounded300');
+
+.app {
+    padding: 20px;
+    height: 100vh;
+    background-color: #c7ecee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.appHeader {
+    padding: 30px 0;
+    color: #30336b;
+    font: bold 40px/50px 'MuseoSansW01-Rounded300';
+
+}
+
+.appButtonsContainer {
+    padding: 30px 0;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.appButton {
+    padding: 10px 40px;
+    font: bold 18px/22px 'MuseoSansW01-Rounded300';
+    color: #4834d4;
+    text-transform: uppercase;
+    text-align: center;
+    border: none;
+    border-radius: 3px;
+    background-color: #f0932b;
+    
+  
+}
+
+.appButton:hover {
+    cursor: pointer;
+    background-color:#4834d4;
+    color: #f0932b;
+}

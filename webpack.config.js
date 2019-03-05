@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeJsPlugin = require('optimize-js-plugin');
 
+
 const plugins = [
     //bez tego nie widzi reacta - nie dołącza reacta do pliku app.bundle.js
     new webpack.ProvidePlugin({
@@ -41,7 +42,8 @@ module.exports = (env) => {
                     test: /\.js$/,
                     loader: "babel-loader",
                     options: {
-                        plugins: env !== 'production' ? ["react-hot-loader/babel"] : []
+                        plugins: env !== 'production' ? ["react-hot-loader/babel", "@babel/plugin-proposal-class-properties"] : [],
+                        compact: env !== 'production' ? false : "auto" 
                     }
                 },
                 {

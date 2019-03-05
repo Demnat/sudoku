@@ -1,0 +1,18 @@
+.tile {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #6ab04c;
+    color: #4834d4;
+    background-color: #f6e58d;
+    font: bold 18px/22px 'MuseoSansW01-Rounded300';
+    text-align: center;
+}
+
+.write {
+    color: #4834d4;
+}
+
+.readOnly {
+    color: #eb4d4b;
+}
+
