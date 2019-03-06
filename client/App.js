@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import Board from './Board';
-import  sudoku  from 'sudoku-umd';
+import sudoku from 'sudoku-umd';
 
 import styles from './App.css';
-import { join } from 'path';
+
 
 class App extends Component {
 
@@ -12,15 +12,16 @@ class App extends Component {
         super(props);
         this.state = {
             initialBoard: '4.51..9787184.96.56.9875...174253869856917...3926.45179.134.756267591....43768192',
-            board: '4.51..9787184.96.56.9875...174253869856917...3926.45179.134.756267591....43768192'
+            board: '4.51..9787184.96.56.9875...174253869856917...3926.45179.134.756267591....43768192',
+            message: ''
         };
     }
 
     restart = () => {
-		this.setState({
-			board: this.state.initialBoard
-		})
-	};
+        this.setState({
+            board: this.state.initialBoard
+        })
+    };
 
     newGame = () => {
         const newGame = sudoku.generate("easy");
@@ -28,38 +29,37 @@ class App extends Component {
             initialBoard: newGame,
             board: newGame,
             message: ''
-		})
+        })
     };
-    
+
     check = () => {
         const result = sudoku.solve(this.state.board);
-        if ( result === false ) {
-            this.setState({message: 'Unfortunately, somewhere there is an error!'});
+        if (result === false) {
+            this.setState({ message: 'Unfortunately, somewhere there is an error!' });
         } else {
-            this.setState({message: 'You are on good way!'})
+            this.setState({ message: 'You are on good way!' })
         }
     };
 
     solve = () => {
         const result = sudoku.solve(this.state.board);
-        console.log(result);
-        if ( result === false ) {
-            this.setState({message: 'Unfortunately, somewhere there is an error!'});
+        if (result === false) {
+            this.setState({ message: 'Unfortunately, somewhere there is an error!' });
         } else {
             this.setState({
                 message: 'Congratulations!!!',
                 board: result
-            })
+            });
         }
     };
 
     onTileUpdate = (newValue, tileIndex) => {
-        
+
         const playerBoard = this.state.board.split('');
         playerBoard[tileIndex] = newValue;
-        this.setState ({
-             board: playerBoard.join()
-         });
+        this.setState({
+            board: playerBoard.join("")
+        });
 
     };
 

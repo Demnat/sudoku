@@ -10,20 +10,18 @@ const Board = props => {
 
     return (
         <div className={styles.board}>
-            { arrayBoard.map((value, index) => {
-        
-                if (value === '.') {
-                    return <Tile key={index} className={styles.write} onPlayerChange={(playerValue) => props.onTileUpdate(playerValue, index)} value=""/>;
-                    
-                } 
-                if (value == arrayInitialBoard[index]) {
-                    return <Tile key={index} className={styles.readOnly} value={value} readonly/>
+            {arrayBoard.map((value, index) => {
+
+                if (value === '.' || arrayInitialBoard[index] !== value) {
+                    return <Tile key={index} className={styles.write} onPlayerChange={(playerValue) => props.onTileUpdate(playerValue, index)} value={value !== "." ? value : ""} />;
+                } else {
+                    return <Tile key={index} className={styles.readOnly} value={value} readonly />
                 }
 
             })}
         </div>
     );
 }
-    
+
 
 export default Board;
